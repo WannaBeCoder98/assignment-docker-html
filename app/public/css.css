@@ -1,0 +1,25 @@
+body {
+    background: rgb(212, 253, 240) !important;
+}
+
+li {
+    float: left;
+  }
+  
+.nav_links {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    background-color: burlywood;
+
+  }
+
+ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+#user_info {
+    border: solid black 3px ;
+}
+/* Source: https://www.w3schools.com/css/css_navbar_horizontal.asp */
