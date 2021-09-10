@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSS -->
-    <link href="css.css" rel="stylesheet">
+    <link href="css/css.css" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
@@ -26,7 +26,7 @@
 
   <body>
     <h1>List of Books</h1> <!-- Source: https://www.goodreads.com/list/show/1.Best_Books_Ever -->
-    <table class="table table-striped">
+    <table id="table-id" class="table table-striped">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -110,4 +110,11 @@
       <a href="img/hunger_games.jpg"><img src="img/hunger_games.jpg" width="200px" height="200px"></a>
       <p>Source: https://www.amazon.com/Hunger-Games-Movie-Tie/dp/0545425115</p>
   </body>
+
+<script src='js/tablesort.min.js'></script>
+
+<script>
+  new Tablesort(document.getElementById('table-id'));
+</script>
+
 </html>
