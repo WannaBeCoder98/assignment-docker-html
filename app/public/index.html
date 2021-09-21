@@ -20,6 +20,8 @@
     <br>
     <br>
     <br>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
   </head>
 
 
@@ -28,15 +30,17 @@
       <h1 class="d-flex justify-content-center">User Information</h1><br>
         <div class="d-flex justify-content-center" id="personApp">
               <div id="user_info">
-                <a href="https://media.istockphoto.com/photos/mature-mixed-race-business-man-picture-id1059661424?k=20&m=1059661424&s=612x612&w=0&h=CLL4tto10GPo1gtMR9c-kPmf8VkvodjvTyqvtEuTLtg=" target="_blank"><img src="https://media.istockphoto.com/photos/mature-mixed-race-business-man-picture-id1059661424?k=20&m=1059661424&s=612x612&w=0&h=CLL4tto10GPo1gtMR9c-kPmf8VkvodjvTyqvtEuTLtg=" alt="Maurice Powell" width="400" height="400"></a> <!--Source: https://randomuser.me/-->
+                <a v-bind:href="result.picture.thumbnail"><img v-bind:src="result.picture.large" width="250" height="250"></a><!--Source: https://randomuser.me/-->
                   <h4>Name</h4>
-                      <p>{{result.name}}</p>
+                      <p>{{result.name.first}} {{result.name.last}}</p>
                   <h4>Country</h4>
-                      <p>{{}}</p>
-                  <h4>Age</h4>
-                      <p>{{}}</p>
+                      <p>{{result.location.country}}</p>
+                  <h4>Birthday</h4>
+                      <p>{{prettyBirthday}}</p>
+                  <h4>My age</h4>
+                    <p>{{result.dob.age}}</p>
                   <h4>Email</h4>
-                      <p><a v-bind:href="'mailto:' + result.email">{{}}</a></p>
+                      <p><a v-bind:href="'mailto:' + result.email">{{result.email}}</a></p>
                   <form v-on:submit.prevent="fetchUserData">
                     <button type="submit">Refresh</button>
                   </form>
@@ -45,4 +49,6 @@
           <p>Source: https://randomuser.me/</p>
     </div>
   </body>
+
+  <script src='js/index.js'></script>
 </html>

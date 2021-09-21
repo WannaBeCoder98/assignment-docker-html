@@ -5,8 +5,6 @@ const personApp = {
     data() {
       return {
         result: {},
-        list: [5,6,7,8],
-        message: "Waiting ..."
       }
     },
     computed: {
