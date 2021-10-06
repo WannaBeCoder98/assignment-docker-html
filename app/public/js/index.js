@@ -5,6 +5,9 @@ const personApp = {
     data() {
       return {
         result: {},
+        student: {},
+        offer: {},
+        //add selected students here
       }
     },
     computed: {
@@ -25,7 +28,44 @@ const personApp = {
             })
             .catch( (error) => {
                 console.error(error);
-            });
+            })
+        },
+
+        selectStudent(s){
+            if (s == this. selectedStudent) {
+                return;
+            }
+            this. selectedStudent = s;
+            this.offers = [];
+            this. fetchOfferData(this.selectedStudent);
+
+        },
+
+        fetchSudentData() {
+            fetch('/API/student')
+            .then(response => response.json())
+            .then((json) => {
+                console.log("Got json back:", json);
+                this.student = json.students[0];
+                console.log("C");
+            })
+            .catch( (error) => {
+                console.error(error);
+            })
+        },
+
+        fetchOfferData() {
+            console.log("Fetching offer data for ", s);
+            fetch('/API/offer/?student=' + s.id)
+            .then(response => response.json())
+            .then((json) => {
+                console.log("Got json back:", json);
+                this.offer = json.offers[0];
+                console.log("C");
+            })
+            .catch( (error) => {
+                console.error(error);
+            })
         }
     },
     created() {
