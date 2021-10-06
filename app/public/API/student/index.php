@@ -26,3 +26,4 @@ $json = json_encode($students, JSON_PRETTY_PRINT);
 // Step 4: Output
 header('Content-Type: application/json');
 echo $json;
+echo "it got here";
