@@ -1,6 +1,7 @@
 <?php
+
 // require 'common.php';
-require 'class/DbConnection.php';
+require 'class/dbConnection.php';
 
 // Step 1: Get a datase connection from our helper class
 $db = DbConnection::getConnection();
@@ -26,4 +27,3 @@ $json = json_encode($students, JSON_PRETTY_PRINT);
 // Step 4: Output
 header('Content-Type: application/json');
 echo $json;
-echo "it got here";

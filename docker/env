@@ -10,4 +10,4 @@
 MYSQL_DATABASE=msisdb
 MYSQL_HOST=msisdb.cnkssafb85ol.us-east-2.rds.amazonaws.com
 MYSQL_USER=jfolzadmin
-MYSQL_PASSWORD=Nine+ten=twenty19
+MYSQL_PASSWORD="Nine+ten=twenty19"
