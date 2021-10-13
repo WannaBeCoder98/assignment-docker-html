@@ -1,7 +1,7 @@
 const SomeApp = {
     data() {
         return {
-            books: [],
+            books:[],
         }
     },
     computed: {},
@@ -14,9 +14,12 @@ const SomeApp = {
                 this.books = responseJson;
             })
         },
-        created(){
-            this.fetchBookData();
-        }
-    }}
+        
+    },
+    created(){
+        this.fetchBookData();
+    }
+
+}
 
 Vue.createApp(SomeApp).mount('#offerApp');
