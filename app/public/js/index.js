@@ -8,7 +8,7 @@ const SomeApp = {
     computed: {},
     methods: {
         fetchBookData() {
-            fetch('/API/books/')
+            fetch('/API/books/index.php')
             .then( response => response.json() )
             .then( (responseJson) => {
                 console.log(responseJson);
@@ -34,8 +34,12 @@ const SomeApp = {
                 this.books = json;
                 
                 // reset the form
-                this.resetinfoForm = {};
+                this.resetinfoForm();
               });
+        },
+        resetinfoForm() {
+
+            this.infoForm = {};
         }
         
     },
