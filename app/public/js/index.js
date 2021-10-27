@@ -2,7 +2,8 @@ const SomeApp = {
     data() {
         return {
             books:[],
-            infoForm: {}
+            infoForm: {},
+            selectedBook: null
         }
     },
     computed: {},
@@ -40,7 +41,64 @@ const SomeApp = {
         resetinfoForm() {
 
             this.infoForm = {};
-        }
+        },
+        // Books Update & Delete
+        postEditBook(evt) {
+                
+            console.log("Updating!", this.infoForm);
+    
+            fetch('api/books/update.php', {
+                method:'POST',
+                body: JSON.stringify(this.infoForm),
+                headers: {
+                  "Content-Type": "application/json; charset=utf-8"
+                }
+              })
+              .then( response => response.json() )
+              .then( json => {
+                console.log("Returned from post:", json);
+                // TODO: test a result was returned!
+                this.books = json;
+                
+                this.resetinfoForm();
+              });
+          },
+          postDeleteBook(b) {
+            if (!confirm("Are you sure you want to delete this referee from "+b.title+"?")) { // confused here as well
+                return;
+            }
+            
+            fetch('api/books/delete.php', {
+                method:'POST',
+                body: JSON.stringify(g),
+                headers: {
+                  "Content-Type": "application/json; charset=utf-8"
+                }
+              })
+              .then( response => response.json() )
+              .then( json => {
+                console.log("Returned from post:", json);
+                // TODO: test a result was returned!
+                this.books = json;
+                
+                this.resetinfoForm();
+              });
+          },
+          selectBook(g) { // confused here as well 
+            this.selectedBook = b;
+            this.infoForm = Object.assign({}, this.selectedBook);
+          },
+          resetinfoForm() { // think I understand this
+            this.selectedBook = null;
+            this.infoForm = {};
+          },
+          postBook(evt) {
+            if (this.selectedBook === null) {
+                this.postNewBook(evt);
+            } else {
+                this.postEditBook(evt);
+            }
+          },
         
     },
     created(){
