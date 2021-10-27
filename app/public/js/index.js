@@ -70,7 +70,7 @@ const SomeApp = {
             
             fetch('api/books/delete.php', {
                 method:'POST',
-                body: JSON.stringify(g),
+                body: JSON.stringify(b),
                 headers: {
                   "Content-Type": "application/json; charset=utf-8"
                 }
@@ -84,7 +84,7 @@ const SomeApp = {
                 this.resetinfoForm();
               });
           },
-          selectBook(g) { // confused here as well 
+          selectBook(b) { // confused here as well 
             this.selectedBook = b;
             this.infoForm = Object.assign({}, this.selectedBook);
           },

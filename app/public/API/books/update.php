@@ -34,7 +34,7 @@ $stmt = $db->prepare(
   'UPDATE book SET
     title = ?,
     author = ?,
-    yearPublsihed = ?,
+    yearPublished = ?,
     publisher = ?,
     pageNumber = ?,
     MSRP = ?
