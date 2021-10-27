@@ -47,7 +47,7 @@ const SomeApp = {
                 
             console.log("Updating!", this.infoForm);
     
-            fetch('api/books/update.php', {
+            fetch('API/books/update.php', {
                 method:'POST',
                 body: JSON.stringify(this.infoForm),
                 headers: {
@@ -64,11 +64,11 @@ const SomeApp = {
               });
           },
           postDeleteBook(b) {
-            if (!confirm("Are you sure you want to delete this referee from "+b.title+"?")) { // confused here as well
+            if (!confirm("Are you sure you want to delete "+b.title+"?")) { // confused here as well
                 return;
             }
             
-            fetch('api/books/delete.php', {
+            fetch('API/books/delete.php', {
                 method:'POST',
                 body: JSON.stringify(b),
                 headers: {
